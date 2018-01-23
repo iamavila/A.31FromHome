@@ -12,28 +12,36 @@ import java.util.ArrayList;
  * @author avila-good-m
  */
 public class Queue {
-    private int[] list;
-    private int length;
-    private int back;
-    private int front;
-    Queue[] QueueList = new Queue[];
+    private int back; //refers to the element at the end of the list
+    private int front;//same but for front
+    ArrayList<Object> TheQ;
     
 //************************** Constructor *****************************
     
     public Queue(){
-        Queue
         back = 0;
         front = 0;
+        TheQ = new ArrayList<Object>();
     }// end create queue
     
 //*************************** Accessors ***********************
-    public int CheckFirst(){
-        return list[front];
+    public Object CheckFirst(){
+        return TheQ.get(front);
     }// end check the front of queue
     
-    public int CheckLast(){
-        return list[back];
+    public Object CheckLast(){
+        return TheQ.get(back);
     }// end check back of queue
+    
+    public void isEmpty(){
+        System.out.println("Empty: " + TheQ.isEmpty());
+    }// end check if empty
+    
 //*************************** Transformers ************************
+    public void AddToBack(Object in){
+        TheQ.add(back+1, in);
+        back++;// increase back
+ 
+    }
     
 }// end class

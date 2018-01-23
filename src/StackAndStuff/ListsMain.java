@@ -5,6 +5,8 @@
  */
 package StackAndStuff;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author avila-good-m
@@ -16,6 +18,14 @@ public class ListsMain {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    }
+        
+        
+        int limit;
+        limit = Integer.parseInt(JOptionPane.showInputDialog("Please enter the queue max size"));
+        
+        Queue[] RealQ = new Queue[limit];
+        
+        
+    }//end main
     
-}
+}// end class
