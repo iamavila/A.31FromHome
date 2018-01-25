@@ -26,10 +26,12 @@ public class Queue {
     
 //*************************** Accessors ***********************
     public Object CheckFirst(){
+        System.out.println(front);
         return TheQ.get(front);
     }// end check the front of queue
     
     public Object CheckLast(){
+        System.out.println(back);
         return TheQ.get(back);
     }// end check back of queue
     
@@ -39,7 +41,7 @@ public class Queue {
     
 //*************************** Transformers ************************
     public void AddToBack(Object in){
-        TheQ.add(back+1, in);
+        TheQ.add(back, in);
         back++;// increase back
  
     }// end addtoBack

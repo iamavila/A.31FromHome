@@ -20,11 +20,15 @@ public class ListsMain {
         // TODO code application logic here
         
         
-        int limit;
-        limit = Integer.parseInt(JOptionPane.showInputDialog("Please enter the queue max size"));
+        // No arraylists required here
         
-        Queue[] RealQ = new Queue[limit];
+//        Queue NewQ = new Queue();
+//        NewQ.AddToBack(6);
+//        NewQ.CheckFirst();
+//        NewQ.CheckLast();
         
+        LaList NewLL = new LaList();
+        NewLL.addNode();
         
     }//end main
     
