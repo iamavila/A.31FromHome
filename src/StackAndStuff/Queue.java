@@ -42,6 +42,11 @@ public class Queue {
         TheQ.add(back+1, in);
         back++;// increase back
  
-    }
+    }// end addtoBack
+    
+    public void TakeOffFront(){
+        TheQ.remove(front);
+        front++;
+    };// end takeOffFront   
     
 }// end class
