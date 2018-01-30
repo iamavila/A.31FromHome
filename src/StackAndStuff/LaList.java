@@ -88,30 +88,38 @@ we know head must exist and have data (or at least null)*/
         // i think this should still work for putting at front of list ?
     }// end insert node at chose location
     
+    
+    
     public void delNode(int n){
         Node dele;
         curr = head;
-        boolean isHead = true;
-        for(int i = 0; i<n; i++){
+        
+        /*
+        set at 1, so that the "if" section will still work for the first node 
+        after head. The "else" is specific to trying to delete head
+        */      
+        for(int i = 1; i<n; i++){
             curr = curr.next;
-            isHead = false;
+            System.out.println(curr.getData());
         }// find node to be deleted
+
+        System.out.println("ishead = " + n);
         
-//        if(isHead == false){
-//        dele = curr.next;
-//        curr.next = curr.next.next;
-//        dele = null;// i have no clue if this will work\
-//        }
-         
-//        else{
-        dele = curr;// set node to be deleted to current node
-        curr = curr.next;//set current to next node
+        if(n >=1){
+        System.out.println(curr.getData() + " curr");
+        dele = curr.next;
+        curr.next = curr.next.next;
+        dele = null;// i have no clue if this will work\
+        }
         
-        if(isHead == true)
-        head = curr;// reset head to current. otherwise the "first 
         
-        dele = null;// delete what was current node. i have no clue if this will work
-//        }
+        else{
+            dele = curr;// set node to be deleted to current node
+
+            curr = curr.next;//set current to next node
+            dele = null;// delete what was current node. i have no clue if this will work
+            head = curr;// reset head to current. otherwise the "first 
+        }
         
         // it works!!1
     }//end delete node 

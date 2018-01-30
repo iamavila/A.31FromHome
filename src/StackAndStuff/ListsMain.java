@@ -54,17 +54,20 @@ public class ListsMain {
         
         
         LaList NewLL = new LaList();
-        NewLL.addNode(1);
+        NewLL.addNode("no.1");
         NewLL.addNode(5);
+        NewLL.addNode("third");
         
         NewLL.getData(0);
         NewLL.getData(1);
         NewLL.getData(2);
+        NewLL.getData(3);
 
         System.out.println("\n");
-        NewLL.delNode(1);
+        NewLL.delNode(3);
         NewLL.getData(0);
         NewLL.getData(1);
+        NewLL.getData(2);
         
         //NewLL.insertNode(1);
         //NewLL.getData(3);
