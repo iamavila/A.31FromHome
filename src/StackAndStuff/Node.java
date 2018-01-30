@@ -17,7 +17,7 @@ public class Node {
     //*********************** constructor ******************
     
     protected Node(){
-        data = 0;
+        data = null;
         System.out.println("node created");
     }
     

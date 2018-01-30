@@ -21,15 +21,53 @@ public class ListsMain {
         
         
         // No arraylists required here
-        
+//        
 //        Queue NewQ = new Queue();
+//        NewQ.isEmpty();
+//        
 //        NewQ.AddToBack(6);
+//
+//        
+//        NewQ.AddToBack(7);
+//
+//        
+//        NewQ.AddToBack("hello");
+//
+//
+//        NewQ.TakeOffFront();
 //        NewQ.CheckFirst();
 //        NewQ.CheckLast();
+//        
+//        
+//        NewQ.isEmpty();
+
+        
+//        Stack newStack = new Stack();
+//        newStack.isEmpty();
+//        newStack.push(5);
+//        newStack.isEmpty();
+//        newStack.peek();
+//        newStack.push(18);
+//        newStack.peek();
+//        newStack.pop();
+//        newStack.peek();
+        
         
         LaList NewLL = new LaList();
-        NewLL.addNode();
+        NewLL.addNode(1);
+        NewLL.addNode(5);
         
+        NewLL.getData(0);
+        NewLL.getData(1);
+        NewLL.getData(2);
+
+        System.out.println("\n");
+        NewLL.delNode(1);
+        NewLL.getData(0);
+        NewLL.getData(1);
+        
+        //NewLL.insertNode(1);
+        //NewLL.getData(3);
     }//end main
     
 }// end class

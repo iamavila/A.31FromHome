@@ -15,11 +15,13 @@ public class LaList {
     
     private Node head;
     private Node curr;
-//******************** constructors *****************
+//******************** constructors ****************
+    
     public LaList(){
-        head = new Node();
-        curr = head;
-    }//end default constructor
+        curr = new Node();
+        head = curr;
+        }//end default constructor
+   
     
     
 // ****************** accessors ************************
@@ -42,8 +44,15 @@ we know head must exist and have data (or at least null)*/
         }while((curr.next != null));// until no more nodes after next.
     }// end traverse
     
-    public Object getData(Node chosen){
-        return chosen.getData();// get data
+    public void getData(int in){
+        curr = head;
+        int count = 0;
+        for(int i = 0; i <in; i++){
+            curr= curr.next;
+
+            count++;
+        }
+        System.out.println("node: " + count + " = " + curr.getData());// get data
     }// end getData
     
     public Object search(Object key){
@@ -61,26 +70,50 @@ we know head must exist and have data (or at least null)*/
         curr = curr.next;// update the current to be new node.
     }// end addNode
     
+    public void addNode(Object in){
+        Node addNew = new Node(in);
+        curr.next = addNew;
+        curr = curr.next;
+    }
+    
     public void insertNode(int in){
         Node insNew = new Node();
+        Node
         curr = head;
         for(int i = 0; i <in; i++){
             curr= curr.next;
         }// for get to proper location
-        curr.next = insNew;// inserts after the chosen node
+        curr = insNew;// inserts after the chosen node
         insNew.next = curr.next.next;// reattach rest of list
         // i think this should still work for putting at front of list ?
     }// end insert node at chose location
     
     public void delNode(int n){
         Node dele;
+        curr = head;
+        boolean isHead = true;
         for(int i = 0; i<n; i++){
             curr = curr.next;
+            isHead = false;
         }// find node to be deleted
         
-        dele = curr.next;
-        curr.next = curr.next.next;
-        dele = null;// i have no clue if this will work
+//        if(isHead == false){
+//        dele = curr.next;
+//        curr.next = curr.next.next;
+//        dele = null;// i have no clue if this will work\
+//        }
+         
+//        else{
+        dele = curr;// set node to be deleted to current node
+        curr = curr.next;//set current to next node
+        
+        if(isHead == true)
+        head = curr;// reset head to current. otherwise the "first 
+        
+        dele = null;// delete what was current node. i have no clue if this will work
+//        }
+        
+        // it works!!1
     }//end delete node 
     
     

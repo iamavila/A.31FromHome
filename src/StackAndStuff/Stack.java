@@ -27,7 +27,9 @@ public class Stack {
     
 //****************** accessors ****************
     public Object peek(){// start peek
-        return TheS.get(top);// return top element
+        System.out.println(TheS.get(top-1));
+        return TheS.get(top-1);// return top element
+        
     }// end peek at top element
     
     public void isEmpty(){
@@ -37,16 +39,17 @@ public class Stack {
 
     public void push(Object in){
         
-
-        top++;// update top of stack
-        TheS.set(top, in);// set top of stack
+        
+        System.out.println("top = " + top);
+        TheS.add(top, in);// set top of stack
+        top++;
         
         
     }// end push an element on top
     
     public void pop(){
-        System.out.println(TheS.indexOf(top) + "to be removed");
-        TheS.remove(top);//delete top index
+        System.out.println(TheS.indexOf(top-1) + " of value " + TheS.get(top-1) + " to be removed");
+        TheS.remove(TheS.get(top-1));//delete top index
         
         top--; // lower the top of stack
         

@@ -19,36 +19,35 @@ public class Queue {
 //************************** Constructor *****************************
     
     public Queue(){
-        back = 0;
-        front = 0;
-        TheQ = new ArrayList<Object>();
+        back = 0;// acts as the location where things will be added onto back
+        front = 0;// always the very front of the line/that object's index
+        TheQ = new ArrayList<Object>();// new array list
     }// end create queue
     
 //*************************** Accessors ***********************
-    public Object CheckFirst(){
-        System.out.println(front);
-        return TheQ.get(front);
+    public void CheckFirst(){
+        System.out.println("Front: " + TheQ.get(front));
     }// end check the front of queue
     
-    public Object CheckLast(){
-        System.out.println(back);
-        return TheQ.get(back);
+    public void CheckLast(){
+        System.out.println("Back: "  + TheQ.get(back-1));
     }// end check back of queue
     
+
     public void isEmpty(){
         System.out.println("Empty: " + TheQ.isEmpty());
     }// end check if empty
     
 //*************************** Transformers ************************
     public void AddToBack(Object in){
-        TheQ.add(back, in);
-        back++;// increase back
+        TheQ.add(back, in);// add object to back of line
+        back++;// increase back 
  
     }// end addtoBack
     
     public void TakeOffFront(){
-        TheQ.remove(front);
-        front++;
+        TheQ.remove(front);// take off object at front of line
+        back--;// reduce size
     };// end takeOffFront   
     
 }// end class
