@@ -3,9 +3,9 @@
  * advantages.
  * Methods user should take note of:
  * traverse()   // get the data of all nodes
- * addNode()    // add a node. put object in parentheses to prime its data
- * insertNode() // inserta a node at any point
- * delNode()    // delete a node at any point
+ * addNode()    // add a node default with no data. put some object in parentheses to prime its data
+ * insertNode() // insert a node at any point. (Clean as hell) (nevermind, has to change)
+ * delNode()    // delete a node at any point (also awesome(nevermind, I better be able to keep this))
  * search()     // look for a node with some key as data
  * isEmpty()    // check if the list is empty.
  */
@@ -40,14 +40,17 @@ public class LaList {
     
     public void traverse(){
         curr = head;
-        int count = 0;
-        if(isEmpty() == false){// if list exists
+        
+        int count = 0;// to make the list more legible
+        if(isEmpty() == false){// if at least one node exists
+            
+            
             do{/* do while so we can get data before going on don't want to end 
     prematurely or get error for getting data of node that doesn't exist. 
-    we know head must exist and have data (or at least null)*/
+    we know first must exist since isEmpty check at the beginning*/
 
-                System.out.println("Node " + curr.getData());// get data
-                count++;
+                System.out.println("Node " + count+ " " + curr.getData());// get data
+                count++;// add to count
                 curr = curr.next;// get next current
             }while((curr != null));// until no more nodes after next.
         }// end if as long as the list exists
@@ -58,18 +61,29 @@ public class LaList {
         int count = 0;
         for(int i = 0; i <in; i++){
             curr= curr.next;
-
             count++;
-        }
+        }// end for traverse and get data
         System.out.println("node: " + count + " = " + curr.getData());// get data
     }// end getData
     
-    public Object search(Object key){
+    public Node search(Object key){
         curr = head;// reset current
-        while(curr.getData() != key){// verify key
-            curr = curr.next;// update node
+        Node sea;
+        int count = 0;// keepin this functionality
+        try{// start try
+            while(curr.getData() != key){// verify key
+                curr = curr.next;// update node
+                count++;
         }// end verify key
-        return curr;//return curr.kinda unsure.untested(like everything else)
+            sea = curr;
+            System.out.println("Node is at spot " + count);//they just want to know where this node is right?
+        }// end try
+        catch(NullPointerException e){// catch for data doesn't exist
+            
+            System.out.println("No node with that data");// error message
+            sea = null;
+            }// end catch for that data doesn't exist.
+        return sea;        
     }
         
 // ************************* transformers *************************
@@ -79,29 +93,39 @@ public class LaList {
         curr = curr.next;// update the current to be new node.
     }// end addNode
     
-    public void addNode(Object in){
+    public void addNode(Object in){// add a node with some data
         Node addNew = new Node(in);
         curr.next = addNew;
         curr = curr.next;
     }
-    
+ // enter the exact spot you want your node in. put some data to id at least
     public void insertNode(int in, Object data){
         Node insNew = new Node(data);
         curr = head;
         
+//just like in del Node, set i to 1 so that you can put things after
+// first node without passing, while still leaving the opportunity
+// to do the switch with node. (could be achieved by using 0, but 
+// you would still need another integer or option to account for the node 
+// directly after the head node.
+
+
         for(int i = 1; i <in; i++){
-            curr= curr.next;
-        }// for get to proper location
+            curr= curr.next;// traverse the list
+        }//end for get to proper location
+        
         if(in>= 1){
         insNew.next = curr.next;// reattach rest of list
         curr.next = insNew;// inserts after the chosen node
-        }
+        }// end if
         else{
-            insNew.next = head;
-            
-        }
+            insNew.next = curr;// 
+            head = insNew;// set head to the new node
+        }// end else choose to put in front
         
         // i think this should still work for putting at front of list ?
+        // yes it does I'm a genius. So clean omg
+        // never mind. rip indexing 
     }// end insert node at chose location
     
     
