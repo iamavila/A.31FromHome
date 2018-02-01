@@ -1,7 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Description: basically a list. Has some limitations and some cool
+ * advantages.
+ * Methods user should take note of:
+ * traverse()   // get the data of all nodes
+ * addNode()    // add a node. put object in parentheses to prime its data
+ * insertNode() // inserta a node at any point
+ * delNode()    // delete a node at any point
+ * search()     // look for a node with some key as data
+ * isEmpty()    // check if the list is empty.
  */
 package StackAndStuff;
 
@@ -34,14 +40,17 @@ public class LaList {
     
     public void traverse(){
         curr = head;
-        
-        do{/* do while so we can get data before going on don't want to end 
-prematurely or get error for getting data of node that doesn't exist. 
-we know head must exist and have data (or at least null)*/
-            
-            curr.getData();// get data
-            curr = curr.next;// get next current
-        }while((curr.next != null));// until no more nodes after next.
+        int count = 0;
+        if(isEmpty() == false){// if list exists
+            do{/* do while so we can get data before going on don't want to end 
+    prematurely or get error for getting data of node that doesn't exist. 
+    we know head must exist and have data (or at least null)*/
+
+                System.out.println("Node " + curr.getData());// get data
+                count++;
+                curr = curr.next;// get next current
+            }while((curr != null));// until no more nodes after next.
+        }// end if as long as the list exists
     }// end traverse
     
     public void getData(int in){
@@ -76,23 +85,30 @@ we know head must exist and have data (or at least null)*/
         curr = curr.next;
     }
     
-    public void insertNode(int in){
-        Node insNew = new Node();
-        Node
+    public void insertNode(int in, Object data){
+        Node insNew = new Node(data);
         curr = head;
-        for(int i = 0; i <in; i++){
+        
+        for(int i = 1; i <in; i++){
             curr= curr.next;
         }// for get to proper location
-        curr = insNew;// inserts after the chosen node
-        insNew.next = curr.next.next;// reattach rest of list
+        if(in>= 1){
+        insNew.next = curr.next;// reattach rest of list
+        curr.next = insNew;// inserts after the chosen node
+        }
+        else{
+            insNew.next = head;
+            
+        }
+        
         // i think this should still work for putting at front of list ?
     }// end insert node at chose location
     
     
     
     public void delNode(int n){
-        Node dele;
-        curr = head;
+        Node dele;// make node for deletion
+        curr = head;// reset current node
         
         /*
         set at 1, so that the "if" section will still work for the first node 
@@ -103,25 +119,30 @@ we know head must exist and have data (or at least null)*/
             System.out.println(curr.getData());
         }// find node to be deleted
 
-        System.out.println("ishead = " + n);
+        System.out.println("ishead = " + n);//tells me if first node or not
         
-        if(n >=1){
-        System.out.println(curr.getData() + " curr");
-        dele = curr.next;
+        if(n >=1){// if not first node
+        System.out.println(curr.getData() + " curr");// gives me info on what I'm deleting
+        
+        dele = curr.next;// get node to be deleted
         curr.next = curr.next.next;
-        dele = null;// i have no clue if this will work\
-        }
+// switch the "next" value to the value of the node after. Can delete node 
+// at end because next is default set to null
+        dele = null;// delete all data within dele. No pointers so it will
+// be garbage collected
+        }// end if not the first node
         
         
-        else{
+        else{// else is first node
             dele = curr;// set node to be deleted to current node
 
             curr = curr.next;//set current to next node
-            dele = null;// delete what was current node. i have no clue if this will work
-            head = curr;// reset head to current. otherwise the "first 
-        }
+            dele = null;// delete what was current node. 
+            head = curr;// reset head to current. 
+        }// else is 
         
-        // it works!!1
+  // it works!! deletes anything you want to delete in one method. The perfect
+  // delete method. Except doesn't catch exceptions :/, w.e tho
     }//end delete node 
     
     

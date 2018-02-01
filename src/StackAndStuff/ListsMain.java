@@ -57,17 +57,26 @@ public class ListsMain {
         NewLL.addNode("no.1");
         NewLL.addNode(5);
         NewLL.addNode("third");
+        NewLL.addNode("Jhin");
         
         NewLL.getData(0);
         NewLL.getData(1);
         NewLL.getData(2);
         NewLL.getData(3);
+        NewLL.getData(4);
+//        NewLL.getData(3);
 
         System.out.println("\n");
         NewLL.delNode(3);
-        NewLL.getData(0);
-        NewLL.getData(1);
-        NewLL.getData(2);
+
+        
+        NewLL.traverse();
+        //NewLL.insertNode(5, "insert");
+//        NewLL.getData(0);
+//        NewLL.getData(1);
+//        NewLL.getData(2);
+//        NewLL.getData(3);
+        //NewLL.getData(4);
         
         //NewLL.insertNode(1);
         //NewLL.getData(3);
